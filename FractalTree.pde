@@ -47,14 +47,34 @@ public void keyPressed()
 		keys[4] = true;
 	if (key == 'd')
 		keys[5] = true;
-	if (keys[0])
+	if (keys[0] && smallestBranch > 5)
+	{
+		smallestBranch--;
+		redraw();
+	}
+	if (keys[1] && smallestBranch < 100)
 	{
 		smallestBranch++;
 		redraw();
 	}
-	if (keys[1])
+	if (keys[2])
 	{
-		smallestBranch--;
+		branchAngle+= 0.01;
+		redraw();
+	}
+	if (keys[3])
+	{
+		branchAngle-=0.01;
+		redraw();
+	}
+	if (keys[4] && fractionLength < .9)
+	{
+		fractionLength +=.1;
+		redraw();
+	}
+	if (keys[5] && fractionLength > .2)
+	{
+		fractionLength-=.1;
 		redraw();
 	}
 }
